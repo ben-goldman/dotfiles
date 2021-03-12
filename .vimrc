@@ -73,12 +73,12 @@ colorscheme one
 set wildmenu
 set smartcase
 set hlsearch
-set incsearch 
-set lazyredraw 
+set incsearch
+set lazyredraw
 set magic
-set showmatch 
+set showmatch
 set mat=2
-syntax enable 
+syntax enable
 set encoding=utf8
 map <Space> :
 set ffs=unix,dos,mac
