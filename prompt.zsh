@@ -8,23 +8,22 @@ fail=""
 os_icon=""
 prompt_symbol=""
 
-blank="#282C34"
 
 function check_last_exit_code() {
-  echo "%(?..%K{red}%F{$blank}$ls%F{$blank}%K{red} $fail %K{$blank}%F{red}$ls%f%k)"
+  echo "%(?..%K{red}%F{}$ls%F{black}%K{red} $fail %K{black}%F{red}$ls%f%k)"
 }
 
 function os_block() {
-  local OS_SEGMENT="%F{$blank}%K{green} $os_icon %F{green}%K{$blank}$ls%f%k"
+  local OS_SEGMENT="%F{black}%K{green} $os_icon %F{green}%K{black}$ls%f%k"
   echo "$OS_SEGMENT"
 }
 
 function dir() {
-  echo "%K{blue}%F{$blank}$ls%f%K{blue} %F{16}%2~ %k%F{blue}$ls"
+  echo "%K{blue}%F{black}$ls%f%K{blue} %F{black}%2~ %K{black}%F{blue}$ls"
 }
 
 function end_prompt() {
-  echo "%K{yellow}%F{$blank}$ls%F{$blank}%K{yellow}$prompt_symbol%F{yellow}%K{$blank}$ls%f%k "
+  echo "%K{yellow}%F{black}$ls%F{black}%K{yellow}$prompt_symbol%F{yellow}%K{black}$ls%f%k "
 
 }
 

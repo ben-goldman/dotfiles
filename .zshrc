@@ -33,10 +33,11 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
 
-zplug "zsh-users/zsh-autosuggestions"
+#zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "Zsh-Packages/fzf"
 zplug "Aloxaf/fzf-tab"
+zplug "wting/autojump"
 #zplug romkatv/powerlevel10k, as:theme, depth:1
 
 # fortune | cowsay -f $(ls /usr/local/Cellar/cowsay/3.04_1/share/cows | shuf -n1)
@@ -61,6 +62,9 @@ fi
  unset __conda_setup
 # <<< conda initialize <<<
 
+export PATH="/Users/bengoldman/go/bin:$PATH"
+export PATH="/Users/bengoldman/.emcas.d/bin:$PATH"
+
 zplug load 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -81,3 +85,9 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
 # switch group using `,` and `.`
 zstyle ':fzf-tab:*' switch-group ',' '.'
 [ -f "/Users/bengoldman/.ghcup/env" ] && source "/Users/bengoldman/.ghcup/env" # ghcup-env
+
+nvim-choose-theme() { cp /Users/bengoldman/.vim/bundle/base16-vim/colors/base16-$1.vim /Users/bengoldman/.vim/bundle/base16-vim/colors/base16-selected.vim }
+alacritty-choose-theme() { cp /Users/bengoldman/.base16-manager/aaron-williamson/base16-alacritty/colors/base16-$1.yml /Users/bengoldman/.base16-manager/aaron-williamson/base16-alacritty/colors/base16-selected.yml }
+choose-theme() {alacritty-choose-theme $1; nvim-choose-theme $1}
+
+source /usr/local/Cellar/autojump/22.5.3_2/share/autojump/autojump.zsh

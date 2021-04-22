@@ -24,12 +24,18 @@ Plugin 'bfredl/nvim-ipy'
 Plugin 'morhetz/gruvbox'
 Plugin 'frazrepo/vim-rainbow'
 Plugin 'vim-pandoc/vim-pandoc'
-Plugin 'joshdick/onedark.vim'
 Plugin 'rakr/vim-one'
 Plugin 'preservim/nerdtree'
 Plugin 'neoclide/coc.nvim'
 Plugin 'ervandew/supertab'
 Plugin 'dkarter/bullets.vim'
+Plugin 'sainnhe/forest-night'
+Plugin 'lifepillar/vim-solarized8'
+Plugin 'sainnhe/sonokai'
+Plugin 'sainnhe/edge'
+Plugin 'sainnhe/gruvbox-material'
+Plugin 'vim-pandoc/vim-pandoc-syntax'
+Plugin 'greyblake/vim-preview'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -46,30 +52,15 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
-"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
-"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
-if (empty($TMUX))
-  if (has("nvim"))
-    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  endif
-  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
-  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
-  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
-  if (has("termguicolors"))
-    set termguicolors
-  endif
-endif
-
-let g:onedark_termcolors=256
-
 set history=100
 
-command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
-set termguicolors
+" Important!!
+if has('termguicolors')
+  set termguicolors
+endif
+
 set background=dark
-colorscheme one
+"colorscheme edge
 set wildmenu
 set smartcase
 set hlsearch
@@ -89,9 +80,6 @@ set smarttab
 set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
-"let g:Tex_CompileRule_pdf='xelatex -interaction=nonstopmode $*'
-"let g:tex_flavor='pdftex'
-"let g:Tex_MultipleCompileFormats='pdf,bib,pdf,view'
 autocmd FileType tex setlocal spell
 autocmd FileType markdown setlocal spell
 set mouse=a
@@ -100,7 +88,6 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 set laststatus=2
 set showtabline=2
 set backspace=indent,eol,start
-set encoding=UTF-8
 set autowriteall
 set t_te=
 
@@ -117,6 +104,9 @@ noremap l n
 noremap L N
 map T ttt
 map N nnn
+
+nnoremap <CR> :w<CR>
+noremap <ESC><CR><ESC> :q<CR>
 
 " easy access to beginning and end of line
 noremap - $
@@ -149,41 +139,42 @@ let g:pandoc#modules#enabled=["command"]
 let g:vimtex_fold_enabled=1
 
 function BG()
-let hr = (strftime('%H'))
-if hr >= 19
-set background=dark
-elseif hr >= 8
-set background=light
-elseif hr >= 0
-set background=dark
-endif
+  let hr = (strftime('%H'))
+  if hr >= 19
+    set background=dark
+  elseif hr >= 8
+    set background=light
+  elseif hr >= 0
+    set background=dark
+  endif
 endfunction
 
 "autocmd CursorHoldI,WinEnter,WinLeave,FocusLost,FocusGained,VimResized,ShellCmdPost,BufWrite * nested call BG()
 
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='one'
+"let g:theme=system('cat ~/.vim/airlinetheme.txt')
+"execute 'let g:airline_theme='theme
 let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
+  let g:airline_symbols = {}
 endif
 let g:airline#extensions#wordcount#filetypes = '\vasciidoc|help|mail|markdown|pandoc|org|rst|tex|text'
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
+"let g:airline_left_sep = '»'
+"let g:airline_left_sep = '▶'
+"let g:airline_right_sep = '«'
+"let g:airline_right_sep = '◀'
+"let g:airline_symbols.linenr = '␊'
+"let g:airline_symbols.linenr = '␤'
+"let g:airline_symbols.linenr = '¶'
+"let g:airline_symbols.branch = '⎇'
 let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
+"let g:airline_symbols.paste = 'Þ'
+"let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
+"let g:airline_left_sep = ''
+"let g:airline_left_alt_sep = ''
+"let g:airline_right_sep = ''
+"let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
@@ -197,10 +188,13 @@ nmap <Leader>i <Plug>(grammarous-move-to-info-window)
 
 nnoremap <F12> :NERDTreeToggle<CR>
 
+nnoremap <CR> :w<CR>
+noremap <ESC><CR><ESC> :q<CR>
+
 let g:nvim_ipy_perform_mappings = 0
 map <silent> <F5> <Plug>(IPy-Run)
 map <silent> <F6> <Plug>(IPy-RunCell)
 let g:ipy_celldef = '^# %%'
 
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
