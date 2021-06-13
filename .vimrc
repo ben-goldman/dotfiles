@@ -92,18 +92,15 @@ set autowriteall
 set t_te=
 
 
-autocmd FileType markdown map t gj
-autocmd FileType markdown map n gk
-
 " dvorak remap
-noremap h h
-noremap t j
-noremap n k
-noremap s l
-noremap l n
-noremap L N
-map T ttt
-map N nnn
+"noremap h h
+"noremap t j
+"noremap n k
+"noremap s l
+"noremap l n
+"noremap L N
+"map T ttt
+"map N nnn
 
 nnoremap <CR> :w<CR>
 noremap <ESC><CR><ESC> :q<CR>
@@ -112,12 +109,12 @@ noremap <ESC><CR><ESC> :q<CR>
 noremap - $
 noremap _ ^
 
-noremap jsf <plug>(vimtex-cmd-toggle-frac)
-noremap jsc <plug>(vimtex-cmd-toggle-star)
-noremap jse <plug>(vimtex-cmd-toggle-frac)
-noremap jse <plug>(vimtex-env-toggle-star)
-noremap jsd <plug>(vimtex-delim-toggle-modifier)
-noremap jsD <plug>(vimtex-delim-toggle-modifier-reverse)
+noremap tsf <plug>(vimtex-cmd-toggle-frac)
+noremap tsc <plug>(vimtex-cmd-toggle-star)
+noremap tse <plug>(vimtex-cmd-toggle-frac)
+noremap tse <plug>(vimtex-env-toggle-star)
+noremap tsd <plug>(vimtex-delim-toggle-modifier)
+noremap tsD <plug>(vimtex-delim-toggle-modifier-reverse)
 
 
 tnoremap <Esc> <C-\><C-n>

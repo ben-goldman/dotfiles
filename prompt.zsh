@@ -28,6 +28,7 @@ function end_prompt() {
 }
 
 setopt prompt_subst
-PROMPT='
-$(os_block)$(dir)$(check_last_exit_code)$(end_prompt)'
-RPROMPT='$GITSTATUS_PROMPT' 
+PROMPT="%F{cyan}%~ -> %f"
+
+# '$(os_block)$(dir)$(check_last_exit_code)$(end_prompt)'
+# RPROMPT='$GITSTATUS_PROMPT'
