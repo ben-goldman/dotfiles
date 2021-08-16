@@ -19,9 +19,6 @@ export LSCOLORS="Gxfxcxdxbxegedabagacad"
 
 alias now="date \"+%l %M %p\" | say"
 alias l="ls -a"
-alias tl="task list"
-alias td="task done"
-alias ta="task add"
 alias ~="cd ~"
 alias note="echo $1 > ~/note"
 alias n="nvim"
@@ -49,17 +46,17 @@ export EDITOR="/usr/local/bin/nvim"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
- __conda_setup="$('/Users/bengoldman/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/Users/bengoldman/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
+  eval "$__conda_setup"
 else
-    if [ -f "/Users/bengoldman/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/bengoldman/anaconda3/etc/profile.d/conda.sh"
-    else
-       export PATH="/Users/bengoldman/anaconda3/bin:$PATH"
-    fi
+  if [ -f "/Users/bengoldman/anaconda3/etc/profile.d/conda.sh" ]; then
+    . "/Users/bengoldman/anaconda3/etc/profile.d/conda.sh"
+  else
+    export PATH="/Users/bengoldman/anaconda3/bin:$PATH"
+  fi
 fi
- unset __conda_setup
+unset __conda_setup
 # <<< conda initialize <<<
 
 export PATH="/Users/bengoldman/go/bin:$PATH"
@@ -67,7 +64,7 @@ export PATH="/Users/bengoldman/.emcas.d/bin:$PATH"
 export PATH="/Users/bengoldman/.local/bin:$PATH"
 export PATH="/Users/bengoldman/.ghcup/bin:$PATH"
 
-zplug load 
+zplug load
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -96,3 +93,5 @@ choose-theme() {alacritty-choose-theme $1; nvim-choose-theme $1}
 source /usr/local/Cellar/autojump/22.5.3_2/share/autojump/autojump.zsh
 
 # [ -f "/Users/bengoldman/.ghcup/env" ] && source "/Users/bengoldman/.ghcup/env" # ghcup-env
+
+eval $(thefuck --alias)

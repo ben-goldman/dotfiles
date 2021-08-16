@@ -1,0 +1,11 @@
+import numpy as np
+from scipy import stats
+#test
+import matplotlib.pyplot as plt
+print("Hello")
+fig = plt.figure(figsize=(10,10))
+bobbert = "what"
+print(bobbert)
+for i in range(10):
+    print(i)
+    print("this")
