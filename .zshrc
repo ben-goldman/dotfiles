@@ -7,7 +7,7 @@
 
 #! /bin/zsh
 
-export TERM=xterm-256color
+#export TERM=xterm-256color
 
 source ~/.zplug/init.zsh
 
@@ -18,9 +18,8 @@ export CLICOLOR=YES
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
 
 alias now="date \"+%l %M %p\" | say"
-alias l="ls -a"
+alias l="ls -alh"
 alias ~="cd ~"
-alias note="echo $1 > ~/note"
 alias n="nvim"
 
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'

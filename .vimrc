@@ -1,11 +1,22 @@
+execute pathogen#infect()
+
 set nocompatible
 if has('termguicolors')
 set termguicolors
 endif
-syntax enable
+syntax on
+filetype plugin indent on
+set autoindent
+set expandtab smarttab
+set tabstop=4
+set shiftwidth=4
 colorscheme onedark
 set guifont=SauceCodePro\ Nerd\ Font:h12
 set linespace=0
+set backspace=indent,eol,start
+set clipboard=unnamed
+
+inoremap <C-h> <C-o>de
 
 noremap t j
 noremap n k
@@ -54,3 +65,11 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ' :'
 let g:airline_symbols.maxlinenr = '☰ '
 let g:airline_symbols.dirty='⚡'
+
+let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
