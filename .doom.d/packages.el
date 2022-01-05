@@ -55,11 +55,6 @@
 (package! pdf-tools)
 (package! neotree)
 
-(package! treemacs-evil)
-(package! treemacs-projectile)
-(package! treemacs-icons-dired)
-(package! treemacs-magit)
-(package! treemacs-persp)
 (package! org-ref)
 
 (package! haskell-mode)
@@ -68,8 +63,9 @@
 
 (package! org-bullets)
 
-
 (package! evil-snipe :disable t)
 
 (package! cowsay)
 (package! csv-mode)
+
+(package! material-theme)

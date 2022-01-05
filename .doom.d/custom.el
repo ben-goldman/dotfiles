@@ -4,7 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(org-agenda-files
-   '("/Volumes/Extreme SSD/science-research/presentations/presentation_current/notes.org" "/Volumes/Extreme SSD/science-research/articles/notes.org"))
+   '("/Volumes/Extreme SSD/science-research/articles/notes/notes.org" "~/todo.org" "~/Documents/College Essay/main.org"))
  '(package-selected-packages '(evil-dvorak)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
