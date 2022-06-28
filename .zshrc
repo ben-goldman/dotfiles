@@ -14,6 +14,9 @@ source ~/.zplug/init.zsh
 PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"
 export PATH
 
+PATH="/usr/local/texlive/2022basic/bin/universal-darwin:${PATH}"
+export PATH
+
 export CLICOLOR=YES
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
 
@@ -89,8 +92,8 @@ nvim-choose-theme() { cp /Users/bengoldman/.vim/bundle/base16-vim/colors/base16-
 alacritty-choose-theme() { cp /Users/bengoldman/.base16-manager/aaron-williamson/base16-alacritty/colors/base16-$1.yml /Users/bengoldman/.base16-manager/aaron-williamson/base16-alacritty/colors/base16-selected.yml }
 choose-theme() {alacritty-choose-theme $1; nvim-choose-theme $1}
 
-source /usr/local/Cellar/autojump/22.5.3_2/share/autojump/autojump.zsh
 
 # [ -f "/Users/bengoldman/.ghcup/env" ] && source "/Users/bengoldman/.ghcup/env" # ghcup-env
 
 eval $(thefuck --alias)
+

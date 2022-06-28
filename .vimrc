@@ -46,6 +46,8 @@ noremap N gg
 noremap S $
 noremap H 0
 
+noremap <Space> :
+
 inoremap <C-d> <ESC>
 nnoremap <C-d> :w<CR>
 vnoremap <C-d> <ESC>
